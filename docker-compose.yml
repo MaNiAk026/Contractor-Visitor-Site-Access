@@ -1,0 +1,181 @@
+﻿name: renewi-contractor-access
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-renewi_access}
+      POSTGRES_USER: ${POSTGRES_USER:-renewi}
+      # Development-only trust authentication keeps the local demo credential-free.
+      POSTGRES_HOST_AUTH_METHOD: trust
+      RENEWI_ENV: ${RENEWI_ENV:-local}
+    ports:
+      # Trust authentication is restricted to the local host for the credential-free demo.
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database:/workspace/database:ro
+      - ./database/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -q -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\"",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      # Browser requests remain same-origin; Next.js proxies this path to FastAPI.
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-/backend}
+      BACKEND_INTERNAL_URL: ${BACKEND_INTERNAL_URL:-http://backend:8000}
+      NEXT_TELEMETRY_DISABLED: "1"
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    depends_on:
+      backend:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "node -e \"fetch('http://127.0.0.1:3000').then(response => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))\"",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    # A named dependency volume masks image dependencies on first startup.
+    # Populate it from the declared manifest without creating a lockfile.
+    command: >-
+      sh -c 'if [ ! -x node_modules/.bin/eslint ]; then npm install --no-audit --no-fund --package-lock=false; fi;
+      exec npm run start -- --hostname 0.0.0.0'
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    command: sh -c "python -m app.cli bootstrap && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://renewi@postgres:5432/renewi_access}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      STORAGE_PROVIDER: ${STORAGE_PROVIDER:-local}
+      STORAGE_LOCAL_PATH: ${STORAGE_LOCAL_PATH:-/var/lib/renewi/evidence}
+      OCR_PROVIDER: ${OCR_PROVIDER:-mock}
+      IDENTITY_VERIFIER_PROVIDER: ${IDENTITY_VERIFIER_PROVIDER:-mock}
+      NOTIFICATION_PROVIDER: ${NOTIFICATION_PROVIDER:-mock}
+      AUTH_PROVIDER: ${AUTH_PROVIDER:-demo}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8000}:8000"
+    volumes:
+      # Ensure local runtime execution always uses the materialized application source.
+      - ./backend/app:/app/app:ro
+      - ./database:/workspace/database:ro
+      - local_evidence:/var/lib/renewi/evidence
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: ./backend
+    command: python -m app.cli worker
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://renewi@postgres:5432/renewi_access}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      STORAGE_PROVIDER: ${STORAGE_PROVIDER:-local}
+      STORAGE_LOCAL_PATH: ${STORAGE_LOCAL_PATH:-/var/lib/renewi/evidence}
+      OCR_PROVIDER: ${OCR_PROVIDER:-mock}
+      IDENTITY_VERIFIER_PROVIDER: ${IDENTITY_VERIFIER_PROVIDER:-mock}
+      NOTIFICATION_PROVIDER: ${NOTIFICATION_PROVIDER:-mock}
+    volumes:
+      # Keep worker behavior aligned with the backend API and validation source.
+      - ./backend/app:/app/app:ro
+      - ./database:/workspace/database:ro
+      - local_evidence:/var/lib/renewi/evidence
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  backend-tests:
+    profiles: ["test"]
+    build:
+      context: ./backend
+    command: python -m unittest discover -s tests -v
+    volumes:
+      # The production backend image intentionally contains only application code.
+      - ./backend/app:/app/app:ro
+      - ./backend/tests:/app/tests:ro
+    restart: "no"
+
+  e2e-tests:
+    profiles: ["test"]
+    # Keep this image version equal to the tracked @playwright/test dependency.
+    image: mcr.microsoft.com/playwright:v1.51.1-noble
+    working_dir: /workspace/frontend
+    environment:
+      CI: "true"
+      E2E_BASE_URL: http://frontend:3000
+      # The repository mount is read-only; retain failure artifacts outside it.
+      PLAYWRIGHT_OUTPUT_DIR: /tmp/renewi-playwright-results
+      # Repository-level test files resolve the frontend-installed test package.
+      NODE_PATH: /workspace/frontend/node_modules
+    volumes:
+      - ./:/workspace:ro
+      - e2e_node_modules:/workspace/frontend/node_modules
+    depends_on:
+      frontend:
+        condition: service_healthy
+    command: sh -c "npm install --no-audit --no-fund --package-lock=false && npm run test:e2e"
+    shm_size: "1gb"
+    restart: "no"
+
+volumes:
+  postgres_data:
+  redis_data:
+  frontend_node_modules:
+  local_evidence:
+  e2e_node_modules:
+
