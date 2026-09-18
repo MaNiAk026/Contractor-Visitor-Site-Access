@@ -403,6 +403,38 @@ async def record_gate_event(
     if current.decision != "grant":
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="The current authorization no longer grants access.")
 
+    # Enforce the physical gate presence state machine.
+    #
+    # Valid transitions:
+    #   no previous event -> entry
+    #   entry             -> exit
+    #   exit              -> entry
+
+    latest_event = fetch_one(
+        """
+        SELECT event_type
+        FROM app.gate_events
+        WHERE authorization_id = %s
+        ORDER BY occurred_at DESC
+        LIMIT 1
+        """,
+        (authorization["id"],),
+    )
+
+    latest_event_type = latest_event["event_type"] if latest_event else None
+
+    if payload.eventType == "entry" and latest_event_type == "entry":
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="This authorization is already recorded as inside the site.",
+        )
+
+    if payload.eventType == "exit" and latest_event_type != "entry":
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="An entry must be recorded before an exit can be recorded.",
+        )
+
     execute(
         """
         INSERT INTO app.gate_events (id, authorization_id, visit_id, event_type, gate_name, occurred_at)

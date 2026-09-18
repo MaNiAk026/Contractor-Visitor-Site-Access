@@ -151,6 +151,7 @@ class GateDecisionTests(TestCase):
                 "expires_at": datetime.now(timezone.utc) + timedelta(days=1),
             },
             {"token": "qr_demo_7f4a91"},
+            None,
         ]
         gate_decision_mock.return_value = make_granted_decision()
 
