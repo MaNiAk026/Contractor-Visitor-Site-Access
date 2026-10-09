@@ -1,0 +1,12 @@
+[
+  {
+    "attempt_number": 1,
+    "completed_at": "2026-09-22T15:34:01.788209Z",
+    "expires_at": "2027-09-22T15:34:01.788209Z",
+    "id": "a1fe9836-08ef-4ea1-bf14-d5d64dfc2dbf",
+    "outcome": "passed",
+    "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "score": 100,
+    "training_module_id": "4587413e-8c4e-5b8c-a3e7-77d8e5802860"
+  }
+]

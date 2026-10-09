@@ -1,0 +1,104 @@
+[
+  {
+    "action": "invitation.created",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "population": "maintenance_contractor",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "status": "invited",
+      "synthetic": true
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "a08e5266-810f-4830-b7f8-43e83dac49eb",
+    "occurred_at": "2026-09-23T03:27:51.835418Z",
+    "reason": "Created a synthetic site-access invitation."
+  },
+  {
+    "action": "registration.completed",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "company_created": true,
+      "company_id": "a4128bd2-28d7-4cb0-a5b2-cb0f8a222d51",
+      "person_created": true,
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "status": "pre_registered",
+      "synthetic": true,
+      "visit_id": "443868fb-2f4f-42bf-95e0-35921cafadd0"
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "d60cf7b3-c2a2-417c-9fe2-a72069676b25",
+    "occurred_at": "2026-09-23T03:27:53.125621Z",
+    "reason": "Linked the invitation to company, person, site, and visit records."
+  },
+  {
+    "action": "evidence.uploaded",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "invitation_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "storage_mode": "LOCAL",
+      "supersedes_id": null,
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "1cf29207-b531-4587-8ff7-9ea2774e6e66",
+    "occurred_at": "2026-09-23T03:27:54.090265Z",
+    "reason": "Private evidence was attached to a registered invitation."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "field_names": [
+        "categories",
+        "code_95",
+        "document_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "0e6c38bd-1486-4272-bf81-c2b2d03e2824",
+    "occurred_at": "2026-09-23T03:27:54.877782Z",
+    "reason": "Configured extraction produced editable evidence fields for review."
+  },
+  {
+    "action": "evidence.verified",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "expiry_date": "2030-06-01",
+      "issue_date": "2025-06-01",
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "status": "verified",
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "cfbbf09b-4650-44f2-ae8b-d12b6342bba6",
+    "occurred_at": "2026-09-23T03:27:55.545171Z",
+    "reason": "Reviewed against the synthetic demo document."
+  },
+  {
+    "action": "invitation.evidence_ready",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+      "status": "evidence_ready",
+      "synthetic": true
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "a814169d-2f0f-41c0-8531-e888244e970d",
+    "occurred_at": "2026-09-23T03:27:55.577799Z",
+    "reason": "Verified evidence advanced the invitation to evidence-ready."
+  }
+]

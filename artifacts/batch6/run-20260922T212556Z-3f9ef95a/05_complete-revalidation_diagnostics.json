@@ -1,0 +1,74 @@
+{
+  "selector": "xpath=//h2[normalize-space()='Expiry control workspace']",
+  "current_url": "http://localhost:3000/",
+  "stage_trace": [
+    {
+      "method": "GET",
+      "path": "/api/people",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/visits",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/visits/16e728e6-90d5-5d3e-bd22-ca371c65b10b/compliance",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/expiry/process",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/revalidation/tasks",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/invitations",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/evidence/assets",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/invitations/9f0865aa-0bdb-56c0-8184-c68fe0563a0b/evidence/assets",
+      "status": 201,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/evidence/21845567-6dc2-4f5f-8dc2-b445c0f9c9f8/extract",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/evidence/21845567-6dc2-4f5f-8dc2-b445c0f9c9f8/verify",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/revalidation/tasks/1c3edb69-26e9-407b-a66f-d77d36e30658/complete",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "browser_console": [],
+  "failed_network_requests": []
+}

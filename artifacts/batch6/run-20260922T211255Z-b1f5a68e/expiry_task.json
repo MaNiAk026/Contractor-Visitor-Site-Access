@@ -1,0 +1,21 @@
+{
+  "processing": {
+    "created_alert_count": 1,
+    "created_task_count": 1,
+    "existing_alert_count": 0,
+    "existing_task_count": 0,
+    "processed_at": "2026-09-22T21:13:05.966565Z"
+  },
+  "task": {
+    "completed_at": null,
+    "completed_by_id": null,
+    "created_at": "2026-09-22T21:13:05.966565Z",
+    "id": "c24a4571-cb75-4ff7-8535-63de0aa0dc79",
+    "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+    "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+    "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+    "source_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+    "source_kind": "EVIDENCE",
+    "status": "OPEN"
+  }
+}

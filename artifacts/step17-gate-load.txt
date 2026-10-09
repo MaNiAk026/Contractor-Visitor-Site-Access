@@ -1,0 +1,21 @@
+Renewi Access demo
+BATCH 1 · SECURE WORKSPACE
+Sign in to continue
+Select a seeded role below. The local-only password is prefilled for this credential-free manager demonstration.
+System Admin
+admin.demo
+Compliance / SHEQ
+sheq.demo
+Site Manager
+manager.demo
+Gate Operator
+gate.demo
+Requester / Host
+host.demo
+Contractor / Driver / Visitor
+participant.demo
+Read-only Viewer
+viewer.demo
+Demo account
+Local demo password
+Sign in

@@ -1,62 +1,105 @@
-# Credentials and Environment Configuration
+# Credential Inventory
 
-## Credential Policy
+## Purpose
 
-The repository intentionally contains no production credentials, passwords, API tokens, client certificates, private keys, or production connection strings. The local demonstration uses deterministic seed data, mock integrations, and server-issued opaque sessions, so it can run without external accounts. Future production secrets must be stored in the approved deployment secret manager rather than in `.env`, source control, documentation, browser storage, or container image layers.
+This inventory defines the credential boundary for the manager-facing demo. It records configuration names and intended use without supplying secret values.
 
-An environment-variable name may be configured only after its value, owner, scope, rotation process, and deployment secret store have been approved. Where a provider has no production adapter implementation, this repository does not define its production credential shape and must not invent one.
+The governing **SOURCE FACT** is that no external API key may block development or the manager walkthrough. Every third-party capability has a deterministic local substitute, and simulated behavior is identified as `DEMO MODE`.
 
-## Local Configuration Names
+## Handling Rules
 
-| Variable | Local default or purpose | Local operational status |
-| --- | --- | --- |
-| `COMPOSE_PROJECT_NAME` | Names the local Compose project. | Used by local Compose configuration. |
-| `APP_ENV` | Identifies the application environment. | Defaults to `development`. |
-| `RENEWI_ENV` | Marks the reset target as the local demo environment. | Must remain `local` for the guarded reset script. |
-| `POSTGRES_DB` and `POSTGRES_USER` | Set local PostgreSQL database identity. | Used by Compose and PowerShell database scripts. |
-| `POSTGRES_PORT` and `REDIS_PORT` | Expose local PostgreSQL and Redis ports. | Local convenience configuration only. |
-| `DATABASE_URL` | Configures the backend PostgreSQL connection. | The backend defaults to its Docker-internal local database URL when unset. |
-| `REDIS_URL` | Declares the local Redis endpoint. | Present in backend settings and Compose; the current worker does not use Redis as queue transport. |
-| `FRONTEND_PORT` and `BACKEND_PORT` | Expose the local frontend and backend ports. | Used by Compose port mappings. |
-| `NEXT_PUBLIC_API_URL` | Selects the browser-facing API base path. | Defaults to the same-origin `/backend` proxy path. |
-| `BACKEND_INTERNAL_URL` | Selects the FastAPI address used by the Next.js server proxy. | Defaults to the Docker-internal backend service address. |
-| `STORAGE_PROVIDER` and `STORAGE_LOCAL_PATH` | Select and locate deterministic local evidence storage. | Defaults to local mounted storage. |
-| `OCR_PROVIDER` | Selects document extraction behavior. | Defaults to `mock`. |
-| `IDENTITY_VERIFIER_PROVIDER` | Selects identity verification behavior. | Defaults to `mock`. |
-| `NOTIFICATION_PROVIDER` | Selects notification behavior. | Defaults to `mock`. |
-| `AUTH_PROVIDER` | Declares the authentication-provider selection. | Defaults to `demo`; the implementation creates opaque local sessions after validating a seeded demonstration account and role pairing. |
-| `LOG_LEVEL` | Selects backend logging verbosity. | Defaults to `INFO`. |
-| `CORS_ORIGINS` | Configures allowed browser origins. | Defined by backend settings with local localhost defaults. |
-| `TOKEN_SIGNING_KEY` | Reserved production-only signing-key setting. | Declared but not used by the deterministic local authorization implementation. |
-| `SENTRY_DSN` | Reserved observability configuration name. | Declared in the environment template but not consumed by the current application. |
-| `HR_INTEGRATION_PROVIDER`, `AGENCY_INTEGRATION_PROVIDER`, `FREIGHT_EXCHANGE_PROVIDER`, `LMS_PROVIDER`, and `ACCESS_CONTROL_PROVIDER` | Name intended enterprise-integration selections. | Default to `mock`; the current adapter implementation reports mock-only integration status. |
-| `WORKER_SCAN_INTERVAL_SECONDS` and `WORKER_RETRY_DELAY_SECONDS` | Configure the local worker scan cadence and failure retry delay. | Used by the simple local periodic worker loop; they do not establish production scheduling or monitoring. |
+Real secret values must never be committed to source control, documentation, synthetic assets, logs, screenshots, QR payloads, or browser-visible configuration.
 
-## Local Authentication Boundary
+The API reads secret-bearing values only on the server. The web application must not receive database credentials, signing material, provider API keys, storage secrets, or SMTP passwords.
 
-The seeded login endpoint validates the selected demonstration email and role pairing, then creates an opaque server-side session with an eight-hour local lifetime. The frontend sends that opaque session reference in an `Authorization: Bearer` header. It no longer sends an `X-Demo-Role` request header.
+The tracked `.env.example` contains only non-secret defaults and empty optional overrides. A local `.env` is not required because Compose supplies credential-free defaults. If an operator creates one, it remains ignored by source control.
 
-This is an improvement over role-header spoofing for the local demonstration, but it is not a production identity solution. It does not provide an enterprise identity-provider integration, approved claim mapping, multifactor authentication, production session security policy, centralized revocation, or managed signing-key strategy.
+## REQUIRED FOR LOCAL DEMO
 
-## Production Credential Requirements
-
-| Capability | Current adapter status | Required production input | Acquisition and minimum scope |
+| Variable | Purpose | Implemented value or behavior | Credential? |
 | --- | --- | --- | --- |
-| Application authentication | Seeded demonstration accounts create opaque local sessions only. | Approved identity-provider contract, client configuration, session or token strategy, signing or encryption secrets, and role-claim mapping. | Renewi identity and security owners must approve the provider and least-privilege role mapping before implementation. |
-| PostgreSQL | Local Compose uses development-only trust authentication. | Managed database endpoint, credential or workload-identity approach, TLS settings, backup access, and migration role. | Platform operations must issue separate runtime and migration identities with only required database privileges. |
-| Evidence storage | Local storage selection only. | Storage-provider contract, bucket or container identity, encryption settings, retention controls, and read/write role separation. | Renewi platform and privacy owners must approve a storage service and least-privilege application identity. |
-| OCR or document processing | The mock OCR provider returns illustrative extraction fields and a pending-review state. | Vendor choice, processing endpoint, data-processing terms, credentials, regional controls, and approved document types. | Renewi privacy, SHEQ, and procurement owners must approve the vendor and processing scope before adapter work begins. |
-| Identity verification | The mock verifier returns deterministic results without biometric processing. | Approved verification method, provider contract, credentials, consent or legal basis, and biometric-policy decision. | Renewi legal, privacy, security, and site operations must approve the method before implementation. |
-| Notifications | The mock notification provider returns a local reference and sends no message. | Approved email, SMS, or workflow provider contract, sender identity, recipient policy, credentials, and delivery monitoring. | Renewi communications and platform operations must authorize the service and minimum send scope. |
-| HR, agency, freight exchange, LMS/SHEQ, and physical access control | The integration-health endpoint presents deterministic mock status only. | Authoritative system, API contract, network route, credentials, data ownership, error handling, and reconciliation rules. | Owning Renewi business and IT teams must provide an approved integration contract before development. |
-| Error monitoring | `SENTRY_DSN` is a reserved template name only. | Monitoring vendor, data-scrubbing rules, endpoint, and credentials. | Platform operations and privacy owners must approve observability tooling and telemetry controls. |
+| `POSTGRES_DB` | Name the local database. | `renewi_access` | No |
+| `POSTGRES_USER` | Name the local database role. | `renewi` | No |
+| `POSTGRES_PORT` | Bind PostgreSQL to the host loopback interface. | `5432` | No |
+| `POSTGRES_PASSWORD` | Reserved for non-demo PostgreSQL authentication. | Empty and unused by the local trust-authenticated container | No local value required |
+| `DATABASE_URL` | Connect the API, migrations, seed, and reset commands. | `postgresql+psycopg://renewi@postgres:5432/renewi_access` | No password |
+| `REDIS_URL` | Connect API background coordination and caching to Redis. | `redis://redis:6379/0` | No password |
+| `FRONTEND_PORT` | Bind the web shell to localhost. | `3000` | No |
+| `BACKEND_PORT` | Bind the API to localhost. | `8000` | No |
+| `STORAGE_PROVIDER` | Select evidence storage. | `local` | No |
+| `STORAGE_LOCAL_PATH` | Locate private evidence inside the API volume. | `/var/lib/renewi/evidence` | No |
+| `OCR_PROVIDER` | Select document extraction. | `mock` | No |
+| `IDENTITY_VERIFIER_PROVIDER` | Select identity verification. | `mock` | No |
+| `NOTIFICATION_PROVIDER` | Select notifications. | `mock` | No |
+| `AUTH_PROVIDER` | Select authentication. | `demo` | No |
 
-## Adapter Selection Rules
+PostgreSQL trust authentication is a deliberate development-only choice. The database and Redis host ports bind to `127.0.0.1`; this configuration must not be used for a shared or production deployment.
 
-The integration-health API treats `mock`, `local`, and `demo` provider values as connected deterministic adapters. Any other value is shown as requiring attention because a production adapter is not configured. This is a local status signal, not a vendor connection test.
+## Local Application Security Overrides
 
-Do not select a provider value such as `smtp` or a named vendor and assume an integration is active. The current implementation has no corresponding production transport, credential parser, secret rotation mechanism, or vendor-specific health check. Production work must add those capabilities and their tests before an operational status can be relied upon.
+| Variable | Purpose | Local behavior when empty |
+| --- | --- | --- |
+| `APP_SECRET_KEY` | Sign local session or token data. | The API generates an in-memory local-only value without requiring manual setup. |
+| `DEMO_SEED_PASSWORD` | Initialize seeded role accounts. | Compose uses the explicitly non-production `renewi-demo-access` fallback so the credential-free manager demo is repeatable. |
+| `SESSION_COOKIE_SECURE` | Control secure-cookie enforcement. | `false` for the HTTP localhost demo; hosted environments must override it. |
+| `SESSION_COOKIE_NAME` | Name the signed HttpOnly browser session. | `renewi_session`. |
+| `SESSION_TTL_SECONDS` | Limit signed-session lifetime. | `28800` seconds (eight hours). |
 
-## Local Safety Constraints
+These values are internal demo configuration, not third-party credentials. The
+committed seed password is safe only for this synthetic local demonstration and
+must be overridden for any shared or hosted environment. Empty overrides must
+not block initial Compose infrastructure startup.
 
-The Compose file sets PostgreSQL's `POSTGRES_HOST_AUTH_METHOD` to `trust` for a credential-free local demonstration. It is deliberately not a production operating model. Keep database ports private to the local workstation where possible, do not attach the local Compose network to shared infrastructure, and replace this setting when introducing a managed database deployment.
+## OPTIONAL INTEGRATION
+
+### Document extraction
+
+| Variable | Purpose | Requirement |
+| --- | --- | --- |
+| `ANTHROPIC_API_KEY` | Authorize optional Anthropic extraction. | Optional secret |
+| `ANTHROPIC_MODEL` | Select an optional Anthropic model. | Optional non-secret setting |
+
+### Object storage
+
+| Variable | Purpose | Requirement |
+| --- | --- | --- |
+| `S3_ENDPOINT_URL` | Identify an optional S3-compatible endpoint. | Optional |
+| `S3_REGION` | Identify an optional storage region. | Optional |
+| `S3_BUCKET` | Identify the private upload bucket. | Optional |
+| `S3_ACCESS_KEY_ID` | Authenticate the optional storage client. | Optional secret |
+| `S3_SECRET_ACCESS_KEY` | Authenticate the optional storage client. | Optional secret |
+
+### Identity verification
+
+| Variable | Purpose | Requirement |
+| --- | --- | --- |
+| `IDENTITY_PROVIDER_API_URL` | Locate an optional verification service. | Optional |
+| `IDENTITY_PROVIDER_API_KEY` | Authorize an optional verification service. | Optional secret |
+
+### Notifications
+
+| Variable | Purpose | Requirement |
+| --- | --- | --- |
+| `SMTP_HOST` | Locate an optional notification relay. | Optional |
+| `SMTP_PORT` | Select the optional relay port. | Optional |
+| `SMTP_USERNAME` | Authenticate to an optional relay. | Optional secret |
+| `SMTP_PASSWORD` | Authenticate to an optional relay. | Optional secret |
+| `SMTP_FROM_ADDRESS` | Set an optional sender address. | Optional |
+
+## DEMO FALLBACK
+
+| Capability | Selector | Default | Fallback implementation |
+| --- | --- | --- | --- |
+| Document extraction | `OCR_PROVIDER` | `mock` | Deterministic mock document parser |
+| Identity verification | `IDENTITY_VERIFIER_PROVIDER` | `mock` | Deterministic mock identity verifier |
+| Storage | `STORAGE_PROVIDER` | `local` | Private `private_storage` named volume |
+| Notifications | `NOTIFICATION_PROVIDER` | `mock` | Deterministic local notification adapter |
+| Authentication | `AUTH_PROVIDER` | `demo` | Seeded local demo authentication |
+| Database | `DATABASE_URL` | Local Compose URL | Trust-authenticated local PostgreSQL |
+| Coordination | `REDIS_URL` | Local Compose URL | Local Redis with no external credential |
+
+If an optional provider is selected without its required configuration, API startup emits a sanitized warning, selects the deterministic local adapter, and exposes the resulting `DEMO` or `LOCAL` mode through health metadata. Logs and responses never contain supplied or missing credential values.
+
+## Verification Obligations
+
+STEP-03 provides the environment template and credential-free infrastructure defaults. STEP-04 validates provider selection at API startup and implements generated in-memory local application-security values. Its clean Compose validation showed only sanitized generation notices and selected provider modes; no generated value was logged or returned by `/health`. VAL-01, VAL-10, and VAL-12 must continue to confirm that no tracked file, rendered QR code, synthetic asset, browser response, or ordinary log contains a secret value.

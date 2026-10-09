@@ -1,0 +1,38 @@
+{
+  "selector": "xpath=//h2[normalize-space()='Expiry control workspace']",
+  "current_url": "http://localhost:3000/",
+  "stage_trace": [
+    {
+      "method": "GET",
+      "path": "/api/people",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/visits",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/visits/16e728e6-90d5-5d3e-bd22-ca371c65b10b/compliance",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "POST",
+      "path": "/api/expiry/process",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "method": "GET",
+      "path": "/api/revalidation/tasks",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "browser_console": [],
+  "failed_network_requests": []
+}

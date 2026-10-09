@@ -1,0 +1,100 @@
+Skip to main content
+Renewi Access
+Site assurance demo
+AUTHORIZED WORKSPACE
+Overview
+Invitations
+People
+Companies
+Visits
+Audit trail
+Demo SHEQ Specialist
+Compliance / SHEQ
+Sign out
+Deterministic demo
+API roles remain authoritative even when modules are hidden here.
+Vlaardingen
+Contractor & visitor access
+Demo mode
+Demo SHEQ Specialist
+Compliance / SHEQ
+STEPS 1–3
+Invitation & evidence workspace
+Synthetic workflow
+Create an invitation, link or create registration records, then attach and review private evidence. Backend decisions remain authoritative.
+Step 1
+Invitation
+Step 2
+Registration
+Step 3
+Evidence
+Create invitation
+All addresses and organisations must remain fictional.
+SITE
+Select a site
+Vlaardingen
+POPULATION
+Renewi driver
+Temporary driver
+External driver
+Maintenance contractor
+Permanent contractor
+Visitor
+SYNTHETIC INVITEE EMAIL
+FICTIONAL COMPANY
+VISIT PURPOSE
+STARTS
+ENDS
+Create invitation
+Visible invitations
+The API filters this list to the signed-in account’s object scope.
+step11-2282d02ac2d4@demo.example.com
+STEP-11 Fictional Services B.V.
+Evidence Ready
+MAINTENANCE CONTRACTOR
+step11-2282d02ac2d4@demo.example.com
+STEP-11 Fictional Services B.V. · STEP-11 deterministic browser validation
+Evidence Ready
+VISIT WINDOW
+Sep 23, 2026, 7:00 PM – Sep 24, 2026, 3:00 AM
+WORKFLOW REFERENCE
+e39b3dab-90c0-47ff-9dd2-b253e8731428
+Private evidence
+Seeded choices and uploads remain private and visibly synthetic.
+1 record
+Select seeded document
+Choose fictional evidence
+Demo Dutch-style driving licence · Driving Licence
+Demo identity card · Id Card
+Demo company insurance certificate · Insurance Certificate
+Demo VCA certificate · Vca Certificate
+Attach seeded evidence
+Upload synthetic document
+ID card
+Driving licence
+VCA certificate
+Insurance certificate
+Upload privately
+PDF, PNG, or JPEG; maximum 5 MiB; visible DEMO marker required.
+Driving Licence
+demo_nl_driving_licence_v1.txt · 0.1 KiB
+Verified
+Preview / download
+Re-extract
+HOLDER NAME
+Alex van Dijk
+DOCUMENT NUMBER
+DEMO-DL-2001
+CATEGORIES
+B,C,CE
+CODE 95
+true
+ISSUE DATE
+2025-06-01
+EXPIRY DATE
+2030-06-01
+DECISION REASONReviewed against the synthetic demo document.
+Verify evidence
+Reject
+Request re-upload
+Latest review: Reviewed against the synthetic demo document.

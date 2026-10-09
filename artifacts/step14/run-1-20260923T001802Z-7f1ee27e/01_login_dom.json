@@ -1,0 +1,10 @@
+{
+  "selector": "css selector=form button[type='submit']",
+  "element_exists": false,
+  "element_visible": false,
+  "element_enabled": false,
+  "current_url": "http://localhost:3000/",
+  "person_id": null,
+  "visit_id": null,
+  "token_id": null
+}

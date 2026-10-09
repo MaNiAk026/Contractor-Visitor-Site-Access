@@ -1,0 +1,106 @@
+Renewi Access
+Site assurance demo
+AUTHORIZED WORKSPACE
+Overview
+Invitations
+People
+Companies
+Visits
+Gate kiosk
+Audit trail
+Settings
+Demo System Administrator
+System Admin
+Sign out
+Deterministic demo
+API roles remain authoritative even when modules are hidden here.
+Vlaardingen
+Contractor & visitor access
+Demo mode
+Demo System Administrator
+System Admin
+BATCH 1 · ROLE-AWARE WORKSPACE
+Welcome, Demo System Administrator
+Signed in
+Your workspace reflects the permissions issued by the Batch 1 API. Direct requests remain protected by server-side authorization.
+Authorized session
+System Admin
+Account admin.demo · All API permissions
+Local demo session
+BATCH 5 · OPERATIONAL OVERVIEW
+Site access dashboard
+Presence, occupancy, and gate activity are projections returned by the backend from immutable entry, exit, and decision records.
+OPERATIONAL SITE
+All authorized sites
+Vlaardingen · NL
+Updated Sep 23, 2026, 2:56 AM · activity window begins Sep 22, 2026, 2:56 AM
+CURRENTLY PRESENT
+0
+ACTIVE VISITS
+8
+ACCESS GRANTS
+0
+ACCESS DENIALS
+0
+On-site roster
+Vlaardingen · live safe presence projection
+Exit recording enabled
+No one is currently on site
+The backend projection has no current authorized entries for this site.
+Site activity
+Backend-returned operational counters for the selected activity window.
+Vlaardingen
+NL
+0 on site
+Active visits
+8
+Grants
+0
+Denials
+0
+Entries
+0
+Exits
+0
+Recent gate decisions
+Decisions remain immutable; this view does not expose scanned token or identity-presentation data.
+No recent gate activity
+No gate decisions were returned for the selected site and activity window.
+0 recorded entries
+0 recorded exits
+BATCH 6 · EXPIRY AND RE-VALIDATION
+Expiry control workspace
+Alerts, renewal tasks, compliance effects, and gate eligibility remain server-authoritative. This workspace only displays protected API state and submits permitted commands.
+0 open re-validation tasks
+Effective demo time
+Sep 23, 2026, 2:56 AM
+Last clock update: Sep 23, 2026, 2:56 AM
+Advance 7 days
+Advance 14 days
+Advance 30 days
+Clock advancement changes the persisted API effective time only. Run expiry processing afterwards to ask the API to create any newly due durable alerts and tasks.
+Expiry processing
+Invokes the idempotent backend processing pass. Notification delivery results, task creation, and any compliance effects are returned and persisted by the API.
+Process expiry
+Re-validation tasks
+Completion is requested only after renewal is verified elsewhere. The API rejects a request if a current verified renewal is unavailable.
+No re-validation tasks
+The API has not returned any expiry-triggered re-validation tasks.
+Persisted expiry alerts
+Delivery status is recorded by the API independently of expiry and eligibility decisions.
+No expiry alerts
+The API has not returned a due or expired evidence or training alert.
+Authorized modules
+Only modules supported by your current permissions are shown.
+People
+Review synthetic person standing and open individual records.
+Companies
+Browse the fictional organizations in the deterministic seed.
+Visits
+Inspect planned and current visit records for Vlaardingen.
+Gate kiosk
+Scan an opaque token and view the persisted server gate decision.
+Audit trail
+Read chronological, append-only lifecycle evidence.
+Settings
+Review administrator-only demo and session configuration.

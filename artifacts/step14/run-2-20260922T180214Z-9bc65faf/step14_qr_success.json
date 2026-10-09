@@ -1,0 +1,11 @@
+{
+  "payload_label_visible": true,
+  "qr_card_visible": true,
+  "qr_svg_visible": true,
+  "qr_svg_dimensions": {
+    "width": 208,
+    "height": 208
+  },
+  "person_id_rendered": false,
+  "token_id": "009bca92-6836-4bc2-a2d9-4379cb012f5f"
+}

@@ -1,0 +1,12 @@
+{
+  "selector": "xpath=//section[@aria-labelledby='compliance-workspace']//*[normalize-space()='Eligible']",
+  "element_exists": true,
+  "element_visible": true,
+  "element_enabled": true,
+  "current_url": "http://localhost:3000/visits",
+  "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+  "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725",
+  "token_id": null,
+  "tag": "span",
+  "outer_html": "<span class=\"inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold leading-none border-emerald-200 bg-emerald-50 text-emerald-700\"><span aria-hidden=\"true\" class=\"h-1.5 w-1.5 rounded-full bg-current\"></span>Eligible</span>"
+}

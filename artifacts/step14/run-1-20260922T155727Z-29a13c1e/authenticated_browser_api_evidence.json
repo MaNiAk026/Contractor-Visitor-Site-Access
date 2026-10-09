@@ -1,0 +1,75 @@
+{
+  "training_results": [
+    {
+      "attempt_number": 1,
+      "completed_at": "2026-09-22T15:57:41.587729Z",
+      "expires_at": "2027-09-22T15:57:41.587729Z",
+      "id": "280d5b09-8d28-495c-ac24-c0a849fb4e87",
+      "outcome": "passed",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "score": 100,
+      "training_module_id": "88757370-2520-5776-b539-c545e96c43d9"
+    },
+    {
+      "attempt_number": 1,
+      "completed_at": "2026-09-22T15:57:40.580745Z",
+      "expires_at": "2027-09-22T15:57:40.580745Z",
+      "id": "353a6d6f-269e-40f8-97ae-dc2a9852b603",
+      "outcome": "passed",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "score": 100,
+      "training_module_id": "4587413e-8c4e-5b8c-a3e7-77d8e5802860"
+    }
+  ],
+  "compliance": {
+    "checks": [
+      {
+        "blocking": false,
+        "code": "SHEQ_BASICS",
+        "detail": "The latest training result is current and passed.",
+        "kind": "training",
+        "label": "SHEQ Basics",
+        "requirement_id": "75e3a8f3-08a5-5f47-aa51-c18089fb9658",
+        "status": "passed"
+      },
+      {
+        "blocking": false,
+        "code": "VLAARDINGEN_SITE_RULES",
+        "detail": "The latest training result is current and passed.",
+        "kind": "training",
+        "label": "Vlaardingen Site Rules",
+        "requirement_id": "fefd7fc0-213d-51b4-a239-9e158f899a8b",
+        "status": "passed"
+      }
+    ],
+    "eligible": true,
+    "evaluated_at": "2026-09-22T15:57:44.262234Z",
+    "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+  },
+  "issued_token": {
+    "expires_at": "2026-09-22T16:00:00Z",
+    "id": "238eca91-ff7a-4749-90fe-7790d55c9295",
+    "issued_at": "2026-09-22T15:57:43.206915Z",
+    "issued_by_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "revoke_reason": null,
+    "revoked_at": null,
+    "revoked_by_id": null,
+    "status": "active",
+    "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+  },
+  "related_audit_actions": [
+    "training.completed",
+    "training.completed",
+    "approval.evaluated",
+    "approval.approved",
+    "token.issued"
+  ],
+  "required_audit_positions": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

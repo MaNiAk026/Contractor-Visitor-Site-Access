@@ -1,0 +1,22 @@
+[
+  {
+    "attempt_number": 1,
+    "completed_at": "2026-09-22T17:34:20.349749Z",
+    "expires_at": "2027-09-22T17:34:20.349749Z",
+    "id": "4b72f5f8-3d65-47bd-b36b-feaa33bedc90",
+    "outcome": "passed",
+    "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "score": 100,
+    "training_module_id": "88757370-2520-5776-b539-c545e96c43d9"
+  },
+  {
+    "attempt_number": 1,
+    "completed_at": "2026-09-22T17:34:19.080628Z",
+    "expires_at": "2027-09-22T17:34:19.080628Z",
+    "id": "dd82c72d-3eee-4b25-aaa1-acccf79ad76f",
+    "outcome": "passed",
+    "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "score": 100,
+    "training_module_id": "4587413e-8c4e-5b8c-a3e7-77d8e5802860"
+  }
+]

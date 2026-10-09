@@ -1,38 +1,119 @@
-# Integration Contracts and Mock-First Operation
+# Integration and Provider Contract
 
-## Operating Principle
+## Purpose
 
-The platform is intentionally mock-first. Local operation must remain complete when Renewi vendor credentials, gate devices, identity systems, OCR services, notification services, and enterprise system contracts are unavailable. The current adapters produce deterministic local behavior and must not be described as live integrations.
+This document defines the external-capability boundaries for document extraction, identity verification, storage, and notifications. These interfaces are **DEMO DESIGN** choices derived from the requirement that the application work without external credentials.
 
-The FastAPI integrations module exposes safe status metadata through the operational integrations workspace. It reports local selections such as `mock`, `local`, and `demo` as connected deterministic adapters. A non-local provider selection is reported as requiring attention because a production adapter is not configured.
+No provider named here is asserted to be part of Renewi's production estate. Enterprise HR, agency, freight-exchange, LMS, gate hardware, and identity-system integrations remain outside the demo and require later discovery.
 
-## Implemented Local Adapters
+## Architectural Rule
 
-| Integration boundary | Local implementation | Observable behavior | Production status |
+Domain services depend on provider interfaces rather than concrete SDKs. Provider selection occurs in API configuration and dependency composition. Route handlers and React components must not instantiate provider clients, inspect provider credentials, or reproduce provider-selection logic.
+
+Every provider result includes a mode or provider identifier so that simulated results can be displayed honestly. The default manager-demo path is deterministic and must remain available when the machine is offline after dependencies have been installed.
+
+## Document Extraction
+
+### Interface
+
+`DocumentExtractionProvider` accepts a private document reference and declared evidence type and returns structured fields, field-level confidence where available, provider mode, and processing metadata. It must not determine whether evidence is compliant or verified.
+
+`EvidenceService` owns the extraction lifecycle, reviewer edits, verification state, issue and expiry dates, and audit events. A compliance reviewer may correct extracted values before verification.
+
+### Implementations
+
+| Implementation | Mode | Credential | Behavior |
 | --- | --- | --- | --- |
-| Identity verification | `MockIdentityVerifier` | An identifier containing the deterministic mismatch marker returns `Mismatch`; other identifiers return `Mock verification matched`. No biometric processing occurs. | No provider, credential contract, legal basis, or biometric approval is implemented. |
-| OCR or document extraction | `MockOcrProvider` | Returns illustrative document metadata, a fixed confidence value, and `pending_review`. Extraction never verifies evidence. | No document-processing vendor or production endpoint is implemented. |
-| Notifications | `MockNotificationProvider` | Produces an auditable local reference and sends no email, SMS, or external message. Expiry revalidation persists idempotent mock notification records for expired or blocked visits. | No delivery transport, sender identity, recipient policy, or monitoring is implemented. |
-| Evidence storage | Local storage configuration | The local Compose volume provides a storage location for the demonstration environment. The schema stores a reference rather than implementing a production object-store adapter. | No managed storage integration, encryption policy, lifecycle policy, or access-control implementation is present. |
-| Authentication | Seeded local account lookup and server-held demonstration session | Login accepts a seeded email and role combination, then returns an opaque session token. Protected API routes resolve the role from the unexpired server-side session record. | No SSO, production token validation, password handling, MFA, production session-security model, or identity-provider adapter is implemented. |
-| HR, agency, freight exchange, LMS/SHEQ, and access control | Mock status entries | The integration-health response presents each as a deterministic mock adapter. | No endpoint, synchronization flow, credential handling, or reconciliation process is implemented. |
+| `MockDocumentParser` | `DEMO` | None | Returns deterministic fields from a synthetic asset identifier and evidence type. |
+| `AnthropicVisionDocumentParser` | `EXTERNAL` | `ANTHROPIC_API_KEY` | Optionally extracts structured fields from a synthetic image using the configured provider. |
 
-## Backend Contracts
+The mock output for a synthetic driving licence includes a fictional holder name, document number, categories, Code 95 flag, issue date, and expiry date. It must be stable across resets.
 
-The versioned FastAPI API is owned by `backend/app/api/v1/router.py`. The local login endpoint is `POST /api/v1/auth/login`. Protected dashboard, search, operational module, gate evaluation, and gate event endpoints require an unexpired opaque local Bearer session.
+Missing Anthropic configuration selects `MockDocumentParser`. A failed external extraction must preserve the evidence record, report a readable processing error, and allow retry or an explicit return to demo mode.
 
-The gate contract is synchronous and online. `POST /api/v1/gate/evaluate` accepts an opaque authorization identifier and returns a fresh grant or deny decision, an explanation, gate-relevant person and visit information, identity status, and an internal authorization identifier only when recognized. `POST /api/v1/gate/events` accepts a previously granted current decision and records an entry or exit only after rechecking authorization and compliance.
+## Identity Verification
 
-Operational module workspaces are read-only where there is no explicit domain lifecycle API. Do not infer a production company, person, evidence, training, approval, QR lifecycle, or blacklist mutation from a workspace view.
+### Interface
 
-## Expiry and Notification Behavior
+`IdentityVerificationProvider` accepts an opaque person reference and a synthetic presentation reference. It returns `match`, `confidence`, `mode`, a provider reference suitable for audit, and an evaluation timestamp.
 
-The worker executes the deterministic expiry-revalidation function at a configurable sixty-second default interval. It evaluates visits whose status is `approved` or `active`. An expired or blocked result causes an idempotent mock notification record to be inserted. A failed scan is logged and retried after the configurable retry delay. The worker loop has no Redis-backed queue use, dead-letter handling, alerting, distributed scheduling control, or production delivery confirmation.
+The provider does not grant or deny access. `GateService` combines the identity result with token, standing, blacklist, evidence, training, and approval checks.
 
-The production design must define scheduling ownership, durable delivery retries, escalation targets, alerting, distributed single-execution controls, and reconciliation before this background behavior is used outside the local demo.
+### Implementations
 
-## Production Integration Onboarding
+| Implementation | Mode | Credential | Behavior |
+| --- | --- | --- | --- |
+| `MockIdentityVerifier` | `DEMO` | None | Returns the deterministic match or mismatch assigned to the selected seeded scenario. |
+| Future CV provider adapter | `EXTERNAL` | `IDENTITY_PROVIDER_API_KEY` and provider URL | Optional boundary for a later synthetic integration exercise. |
 
-A production adapter should be introduced only after Renewi supplies a documented contract. That contract must identify the data controller and owner, source-of-truth direction, endpoint and network requirements, authentication method, minimum scopes, retention and data-processing constraints, retry and timeout behavior, health semantics, audit requirements, error ownership, and test environment.
+The demo must not collect or process real biometric information. The gate screen must display `DEMO MODE` for mock results.
 
-No production vendor names, endpoint paths, credentials, or protocol assumptions are encoded in this repository. The correct safe action when an adapter is not configured is to preserve the local mock state and treat the production integration as unavailable.
+If an explicitly selected external verifier is unavailable during a gate evaluation, the API must return a typed provider-unavailable check rather than silently treating the person as matched. An operator may retry or deliberately select a deterministic demo scenario.
+
+## File Storage
+
+### Interface
+
+`StorageProvider` creates a private object from validated content, retrieves authorized content, and returns an opaque storage reference. Domain records store the reference rather than a public filesystem path or provider credential.
+
+The API owns upload size, extension, MIME-type, path, and authorization checks before a storage call.
+
+### Implementations
+
+| Implementation | Mode | Credential | Behavior |
+| --- | --- | --- | --- |
+| `LocalStorage` | `LOCAL` | None | Stores synthetic files in a private Docker volume outside the web public directory. |
+| `S3Storage` | `EXTERNAL` | S3-compatible settings and credentials | Optionally stores synthetic files in a private bucket. |
+
+Missing S3 credentials select `LocalStorage`. Neither implementation may return a permanent unauthenticated public URL. Preview access must pass through an authorized API response or a short-lived provider mechanism.
+
+## Notifications
+
+### Interface
+
+`NotificationProvider` receives a template key, recipient reference, structured payload, and idempotency key. It returns delivery mode, status, and a provider reference. Domain services create business alerts and audit events independently of delivery success.
+
+### Implementations
+
+| Implementation | Mode | Credential | Behavior |
+| --- | --- | --- | --- |
+| `InAppNotification` | `IN_APP` | None | Persists a visible local invitation, correction, expiry, or re-validation notification. |
+| `SmtpNotification` | `SMTP` | Optional SMTP configuration | Optionally sends synthetic-address email or routes mail to a local catcher. |
+
+Missing SMTP credentials select `InAppNotification`. No demo flow may require an email to be delivered before the workflow can continue.
+
+## Planned Service Integration
+
+| Domain service | Provider dependency | Domain-owned behavior |
+| --- | --- | --- |
+| `EvidenceService` | `DocumentExtractionProvider`, `StorageProvider` | Evidence lifecycle, editable review, verification, rejection, and re-upload request |
+| `GateService` | `IdentityVerificationProvider` | Ordered compliance checks, final grant or denial, reasons, and corrective actions |
+| Invitation and re-validation services | `NotificationProvider` | Business state, task creation, and audit events |
+| Upload and evidence routes | `StorageProvider` through `EvidenceService` | Authorization and validated file handling |
+
+`ComplianceService`, `ApprovalService`, `TokenService`, `PresenceService`, `DashboardService`, and `AuditService` have no direct dependency on an external provider.
+
+## Provider Selection and Observability
+
+Provider selectors and credential names are documented in `requirements/CREDENTIALS.md`. The API must expose only sanitized provider mode and health information.
+
+Startup logs may state that an optional provider was unavailable and that a local provider was selected. They must not print API keys, passwords, tokens, connection strings, uploaded content, or sensitive provider responses.
+
+Relevant API responses must include enough provider-mode information for the web application to show `DEMO MODE`, `LOCAL`, `IN APP`, or `EXTERNAL`. The web application must render the returned mode rather than infer it from environment variables.
+
+## Future Integration Boundaries
+
+The following integrations are intentionally not implemented in the manager demo:
+
+| Future integration | Required discovery before implementation |
+| --- | --- |
+| Authoritative person or HR source | Ownership, identity key, update direction, retention, and access controls |
+| Company or supplier source | Authoritative supplier status, duplicate rules, and compliance ownership |
+| Agency or freight-exchange feed | Notice timing, payload, consent, failure handling, and manual fallback |
+| Enterprise LMS | Module ownership, completion API, score semantics, and expiry rules |
+| Physical gate or barrier | Hardware protocol, network conditions, offline mode, safety fallback, and operator ownership |
+| Production identity matching | Legal basis, DPIA, accuracy thresholds, provider selection, retention, and appeal path |
+
+## Validation Obligations
+
+VAL-01 requires inspection showing that every optional integration has a deterministic local fallback. VAL-06 must prove that the backend, rather than the provider or frontend, owns the final gate decision. VAL-10 and VAL-12 must confirm that provider modes are visible, secrets are absent, uploads remain private, and simulated identity behavior is not represented as production biometric processing.

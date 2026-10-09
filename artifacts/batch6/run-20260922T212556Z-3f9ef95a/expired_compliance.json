@@ -1,0 +1,55 @@
+{
+  "compliance": {
+    "checks": [
+      {
+        "blocking": false,
+        "code": "ID_CARD",
+        "detail": "Verified required evidence is current.",
+        "kind": "evidence",
+        "label": "Verified identity card",
+        "requirement_id": "32852ff4-6ba9-5eb1-8789-3a2ce5d4b172",
+        "status": "passed"
+      },
+      {
+        "blocking": false,
+        "code": "SHEQ_BASICS",
+        "detail": "The latest training result is current and passed.",
+        "kind": "training",
+        "label": "SHEQ Basics",
+        "requirement_id": "0e356f12-89db-5201-871a-512fac0b3f01",
+        "status": "passed"
+      },
+      {
+        "blocking": true,
+        "code": "VCA_CERTIFICATE",
+        "detail": "The required verified evidence has expired.",
+        "kind": "evidence",
+        "label": "Verified VCA certificate",
+        "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+        "status": "expired"
+      },
+      {
+        "blocking": false,
+        "code": "VLAARDINGEN_SITE_RULES",
+        "detail": "The latest training result is current and passed.",
+        "kind": "training",
+        "label": "Vlaardingen Site Rules",
+        "requirement_id": "0172ea11-d703-584c-a6ea-b6cdd17a4638",
+        "status": "passed"
+      }
+    ],
+    "eligible": false,
+    "evaluated_at": "2026-09-22T21:26:06.619439Z",
+    "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+    "visit_id": "16e728e6-90d5-5d3e-bd22-ca371c65b10b"
+  },
+  "vca_check": {
+    "blocking": true,
+    "code": "VCA_CERTIFICATE",
+    "detail": "The required verified evidence has expired.",
+    "kind": "evidence",
+    "label": "Verified VCA certificate",
+    "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+    "status": "expired"
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "level": "SEVERE",
+    "message": "http://localhost:8000/api/visits/a2445f81-ad84-588d-88fb-524b848ca725/tokens - Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "source": "network",
+    "timestamp": 1790121856712
+  }
+]

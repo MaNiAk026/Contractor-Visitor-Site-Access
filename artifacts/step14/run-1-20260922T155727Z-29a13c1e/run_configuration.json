@@ -1,0 +1,11 @@
+{
+  "cycle_number": 1,
+  "web_base_url": "http://localhost:3000",
+  "api_base_url": "http://localhost:8000",
+  "expected_chrome_major": "153",
+  "headless": true,
+  "required_module_codes": [
+    "sheq_basics",
+    "vlaardingen_site_rules"
+  ]
+}

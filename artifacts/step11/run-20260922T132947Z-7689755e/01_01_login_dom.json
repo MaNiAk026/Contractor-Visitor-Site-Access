@@ -1,0 +1,9 @@
+{
+  "selector": "xpath=//form//button[@type='submit' and normalize-space()='Sign in']",
+  "element_exists": false,
+  "element_visible": false,
+  "element_enabled": false,
+  "invitation_id": null,
+  "person_id": null,
+  "evidence_id": null
+}

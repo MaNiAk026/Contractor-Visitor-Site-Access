@@ -1,0 +1,12 @@
+[
+  {
+    "status": 401,
+    "url": "http://localhost:8000/auth/me",
+    "status_text": "Unauthorized"
+  },
+  {
+    "status": 404,
+    "url": "http://localhost:3000/favicon.ico",
+    "status_text": "Not Found"
+  }
+]

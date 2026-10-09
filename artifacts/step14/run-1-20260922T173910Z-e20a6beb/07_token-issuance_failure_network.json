@@ -1,0 +1,7 @@
+[
+  {
+    "status": 409,
+    "url": "http://localhost:8000/api/visits/a2445f81-ad84-588d-88fb-524b848ca725/tokens",
+    "status_text": "Conflict"
+  }
+]

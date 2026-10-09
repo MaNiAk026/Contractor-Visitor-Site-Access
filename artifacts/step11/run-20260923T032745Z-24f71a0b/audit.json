@@ -1,0 +1,629 @@
+[
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "happy_path",
+      "synthetic": true
+    },
+    "entity_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "entity_type": "person",
+    "id": "80a69b7c-28ed-51ba-b882-a97856d7b589",
+    "occurred_at": "2026-01-01T00:00:00Z",
+    "reason": "Created fictional Alex van Dijk for the happy path baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "expired_evidence",
+      "synthetic": true
+    },
+    "entity_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+    "entity_type": "person",
+    "id": "9794c529-ab9d-560d-b9eb-43104719fbbc",
+    "occurred_at": "2026-01-01T00:01:00Z",
+    "reason": "Created fictional Sofia Janssen for the expired evidence baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "training_failure",
+      "synthetic": true
+    },
+    "entity_id": "fb15a638-40d2-5218-b637-b91f36ee7733",
+    "entity_type": "person",
+    "id": "9acd0941-761e-5071-8e94-0ea36f2bc979",
+    "occurred_at": "2026-01-01T00:02:00Z",
+    "reason": "Created fictional Milan de Boer for the training failure baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "blacklist",
+      "synthetic": true
+    },
+    "entity_id": "8cb43136-0e1f-5fc9-b6da-5fa5d720913d",
+    "entity_type": "person",
+    "id": "4db91e0c-687c-581b-a64f-79de12bc1800",
+    "occurred_at": "2026-01-01T00:03:00Z",
+    "reason": "Created fictional Noah Peters for the blacklist baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "identity_mismatch",
+      "synthetic": true
+    },
+    "entity_id": "a66ca1ac-0d2a-50ea-a7a8-b8b2edf12b39",
+    "entity_type": "person",
+    "id": "e0e6e676-2c5b-540b-bcbb-52e75ce68cc3",
+    "occurred_at": "2026-01-01T00:04:00Z",
+    "reason": "Created fictional Emma Visser for the identity mismatch baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "revalidation",
+      "synthetic": true
+    },
+    "entity_id": "03d9d4a0-61cc-5078-b5fc-4da7da3f1f36",
+    "entity_type": "person",
+    "id": "88246a0c-6718-5e57-a457-0b2dcafb39db",
+    "occurred_at": "2026-01-01T00:05:00Z",
+    "reason": "Created fictional Lucas Smit for the revalidation baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "population_reference",
+      "synthetic": true
+    },
+    "entity_id": "07262cc1-6fc3-5743-86e3-3c2715e09e3a",
+    "entity_type": "person",
+    "id": "9badf262-f0b3-570f-8d60-72f37c6c1443",
+    "occurred_at": "2026-01-01T00:06:00Z",
+    "reason": "Created fictional Eva Mulder for the population reference baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "population_reference",
+      "synthetic": true
+    },
+    "entity_id": "ab115cce-c644-58ed-8d65-10f432b6c35a",
+    "entity_type": "person",
+    "id": "20b0e8ee-05b4-5b22-b564-7bbbc0ccfd80",
+    "occurred_at": "2026-01-01T00:07:00Z",
+    "reason": "Created fictional Sam Meijer for the population reference baseline."
+  },
+  {
+    "action": "invitation.created",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "population": "maintenance_contractor",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "status": "invited",
+      "synthetic": true
+    },
+    "entity_id": "d1abb8da-0bc3-45f6-83fa-d7cc5a591d35",
+    "entity_type": "invitation",
+    "id": "81ee5aab-631a-4fb5-8ee9-d3ca24237dd3",
+    "occurred_at": "2026-09-23T02:21:03.219662Z",
+    "reason": "Created a synthetic site-access invitation."
+  },
+  {
+    "action": "registration.completed",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "company_created": true,
+      "company_id": "adb0fbcf-7793-48c1-9497-88d68c0bf281",
+      "person_created": true,
+      "person_id": "9577cca7-164c-4191-bc9d-338f00db8c11",
+      "status": "pre_registered",
+      "synthetic": true,
+      "visit_id": "0f97cbbf-5ae7-4709-a3b1-d0aa1eb90dec"
+    },
+    "entity_id": "d1abb8da-0bc3-45f6-83fa-d7cc5a591d35",
+    "entity_type": "invitation",
+    "id": "d473c0ea-bc4a-4cdc-b1c2-ddd8f8ab7dac",
+    "occurred_at": "2026-09-23T02:21:42.988717Z",
+    "reason": "Linked the invitation to company, person, site, and visit records."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "field_names": [
+        "certificate_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date",
+        "provider"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+    "entity_type": "evidence",
+    "id": "9dbdcb5c-b73a-42a0-a967-95d2c2f98075",
+    "occurred_at": "2026-09-23T02:22:33.095376Z",
+    "reason": "Deterministic mock extraction produced editable evidence fields."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "field_names": [
+        "certificate_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date",
+        "provider"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+    "entity_type": "evidence",
+    "id": "16b3b879-9f01-4393-a6ab-1e9cb5717474",
+    "occurred_at": "2026-09-23T02:22:36.848149Z",
+    "reason": "Deterministic mock extraction produced editable evidence fields."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "field_names": [
+        "document_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date",
+        "nationality"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "e756a661-28da-5deb-892e-79c2188aa868",
+    "entity_type": "evidence",
+    "id": "1425c9b1-d3aa-44ef-a963-24d48c1405a9",
+    "occurred_at": "2026-09-23T02:23:18.446596Z",
+    "reason": "Deterministic mock extraction produced editable evidence fields."
+  },
+  {
+    "action": "evidence.verified",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "evidence_type": "vca_certificate",
+      "expiry_date": "2029-01-15",
+      "issue_date": "2026-01-15",
+      "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+      "status": "verified",
+      "synthetic": true
+    },
+    "entity_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+    "entity_type": "evidence",
+    "id": "8289352f-3258-48ec-9dfb-b8a63a5d49bb",
+    "occurred_at": "2026-09-23T02:23:21.145721Z",
+    "reason": "Reviewed against the synthetic demo document."
+  },
+  {
+    "action": "approval.evaluated",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "checks": [
+        {
+          "blocking": false,
+          "code": "DRIVING_LICENCE",
+          "detail": "Verified required evidence is current.",
+          "kind": "evidence",
+          "label": "Verified driving licence",
+          "requirement_id": "ad34a08b-5cc6-5684-a45a-0b7afaee2a45",
+          "status": "passed"
+        },
+        {
+          "blocking": false,
+          "code": "ID_CARD",
+          "detail": "Verified required evidence is current.",
+          "kind": "evidence",
+          "label": "Verified identity card",
+          "requirement_id": "456725c4-e5a2-5725-b540-3f421996eaaf",
+          "status": "passed"
+        },
+        {
+          "blocking": false,
+          "code": "SHEQ_BASICS",
+          "detail": "The latest training result is current and passed.",
+          "kind": "training",
+          "label": "SHEQ Basics",
+          "requirement_id": "75e3a8f3-08a5-5f47-aa51-c18089fb9658",
+          "status": "passed"
+        },
+        {
+          "blocking": false,
+          "code": "VLAARDINGEN_SITE_RULES",
+          "detail": "The latest training result is current and passed.",
+          "kind": "training",
+          "label": "Vlaardingen Site Rules",
+          "requirement_id": "fefd7fc0-213d-51b4-a239-9e158f899a8b",
+          "status": "passed"
+        }
+      ],
+      "eligible": true,
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "390c5128-05cd-4f0b-8fa4-e3e8da3fe2b7",
+    "entity_type": "approval",
+    "id": "9e45af03-89ae-4983-881c-b0d0cf6c739e",
+    "occurred_at": "2026-09-23T02:25:27.924489Z",
+    "reason": "Compliance evaluation requested."
+  },
+  {
+    "action": "approval.rejected",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "eligible_snapshot": true,
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "390c5128-05cd-4f0b-8fa4-e3e8da3fe2b7",
+    "entity_type": "approval",
+    "id": "93ad223f-3beb-4590-8980-61dcc73cc4d5",
+    "occurred_at": "2026-09-23T02:25:36.061224Z",
+    "reason": "Compliance evaluation requested."
+  },
+  {
+    "action": "presence.entered",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "gate_event_id": "02de8ea2-1362-456a-9cc7-ee7cc1103600",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "c6bf3531-d93b-4f1f-b436-2b3c5aec0c91",
+    "entity_type": "presence_event",
+    "id": "d1463a71-3a31-4b2c-b96b-6dadaf9fdc7e",
+    "occurred_at": "2026-09-23T02:35:47.512451Z",
+    "reason": "A backend-authoritative gate grant recorded site entry."
+  },
+  {
+    "action": "gate.granted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "decision": "GRANT",
+      "identity_mode": "DEMO",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "reason_codes": [],
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "02de8ea2-1362-456a-9cc7-ee7cc1103600",
+    "entity_type": "gate_event",
+    "id": "915c274b-f994-4573-b741-d967da8c3ac3",
+    "occurred_at": "2026-09-23T02:35:47.516556Z",
+    "reason": "All mandatory server-side gate checks passed."
+  },
+  {
+    "action": "presence.entered",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "gate_event_id": "7f56a6ca-db1e-47f2-8e41-3a1a68d062c7",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "05d0f44b-1edc-4559-9e86-013d903de3cf",
+    "entity_type": "presence_event",
+    "id": "76847b32-a260-473e-8310-441f18e6792b",
+    "occurred_at": "2026-09-23T02:54:13.025100Z",
+    "reason": "A backend-authoritative gate grant recorded site entry."
+  },
+  {
+    "action": "gate.granted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "decision": "GRANT",
+      "identity_mode": "DEMO",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "reason_codes": [],
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "7f56a6ca-db1e-47f2-8e41-3a1a68d062c7",
+    "entity_type": "gate_event",
+    "id": "1c623fb8-e158-4369-81ad-4254189d75eb",
+    "occurred_at": "2026-09-23T02:54:13.033061Z",
+    "reason": "All mandatory server-side gate checks passed."
+  },
+  {
+    "action": "presence.entered",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "gate_event_id": "2e0b89ce-da3e-47ee-bf61-ea3be695bf45",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "91237ac7-beb0-4e2f-9b11-a87372ebb810",
+    "entity_type": "presence_event",
+    "id": "7200575a-f77d-4de8-a92d-ac4a507607ab",
+    "occurred_at": "2026-09-23T03:02:27.571679Z",
+    "reason": "A backend-authoritative gate grant recorded site entry."
+  },
+  {
+    "action": "gate.granted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "decision": "GRANT",
+      "identity_mode": "DEMO",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "reason_codes": [],
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "2e0b89ce-da3e-47ee-bf61-ea3be695bf45",
+    "entity_type": "gate_event",
+    "id": "9f4445f5-fc2e-43de-abca-ac08df27e65a",
+    "occurred_at": "2026-09-23T03:02:27.576632Z",
+    "reason": "All mandatory server-side gate checks passed."
+  },
+  {
+    "action": "presence.entered",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "gate_event_id": "627e2652-1613-4b65-8467-66325ca501d1",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "27a75cdd-c731-48d5-8ad8-1eceb59d2ea6",
+    "entity_type": "presence_event",
+    "id": "401bf118-f17c-4700-b480-7e3647269c97",
+    "occurred_at": "2026-09-23T03:15:41.898369Z",
+    "reason": "A backend-authoritative gate grant recorded site entry."
+  },
+  {
+    "action": "gate.granted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "decision": "GRANT",
+      "identity_mode": "DEMO",
+      "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+      "reason_codes": [],
+      "synthetic": true,
+      "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725"
+    },
+    "entity_id": "627e2652-1613-4b65-8467-66325ca501d1",
+    "entity_type": "gate_event",
+    "id": "2d04c1b0-5093-460a-b2cb-0f150d5ef454",
+    "occurred_at": "2026-09-23T03:15:41.917810Z",
+    "reason": "All mandatory server-side gate checks passed."
+  },
+  {
+    "action": "evidence.verified",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "evidence_type": "id_card",
+      "expiry_date": "2031-01-01",
+      "issue_date": "2026-01-01",
+      "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+      "status": "verified",
+      "synthetic": true
+    },
+    "entity_id": "e756a661-28da-5deb-892e-79c2188aa868",
+    "entity_type": "evidence",
+    "id": "f61c5d70-2e81-4280-80ad-8da7aae742b7",
+    "occurred_at": "2026-09-23T03:16:16.845149Z",
+    "reason": "Reviewed against the synthetic demo document."
+  },
+  {
+    "action": "evidence.uploaded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "evidence_type": "driving_licence",
+      "invitation_id": "9f0865aa-0bdb-56c0-8184-c68fe0563a0b",
+      "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+      "storage_mode": "LOCAL",
+      "supersedes_id": null,
+      "synthetic": true
+    },
+    "entity_id": "1d00dcb6-df40-46cb-b830-f744bf9daf27",
+    "entity_type": "evidence",
+    "id": "f2551df1-0fe5-4b67-b52a-7aadec1603b1",
+    "occurred_at": "2026-09-23T03:18:25.047395Z",
+    "reason": "Private evidence was attached to a registered invitation."
+  },
+  {
+    "action": "invitation.created",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "population": "external_driver",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "status": "invited",
+      "synthetic": true
+    },
+    "entity_id": "044d8f02-6307-4a4e-bbae-d0d049ab833a",
+    "entity_type": "invitation",
+    "id": "0320f987-75db-4e06-961b-190bc3f2ecda",
+    "occurred_at": "2026-09-23T03:19:35.605268Z",
+    "reason": "Created a synthetic site-access invitation."
+  },
+  {
+    "action": "registration.completed",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "company_created": false,
+      "company_id": "adb0fbcf-7793-48c1-9497-88d68c0bf281",
+      "person_created": false,
+      "person_id": "9577cca7-164c-4191-bc9d-338f00db8c11",
+      "status": "pre_registered",
+      "synthetic": true,
+      "visit_id": "993aebe7-2184-447d-9a62-0fa9497cee90"
+    },
+    "entity_id": "044d8f02-6307-4a4e-bbae-d0d049ab833a",
+    "entity_type": "invitation",
+    "id": "7cc131a7-506b-4864-9675-a775650e5e6f",
+    "occurred_at": "2026-09-23T03:19:56.304327Z",
+    "reason": "Linked the invitation to company, person, site, and visit records."
+  },
+  {
+    "action": "evidence.uploaded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "evidence_type": "driving_licence",
+      "invitation_id": "044d8f02-6307-4a4e-bbae-d0d049ab833a",
+      "person_id": "9577cca7-164c-4191-bc9d-338f00db8c11",
+      "storage_mode": "LOCAL",
+      "supersedes_id": null,
+      "synthetic": true
+    },
+    "entity_id": "27a8d090-9b18-488a-971f-d28f4d0b18f0",
+    "entity_type": "evidence",
+    "id": "93087b37-c838-46c6-ac25-def36f959db1",
+    "occurred_at": "2026-09-23T03:20:12.048156Z",
+    "reason": "Private evidence was attached to a registered invitation."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "field_names": [
+        "categories",
+        "code_95",
+        "document_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "27a8d090-9b18-488a-971f-d28f4d0b18f0",
+    "entity_type": "evidence",
+    "id": "bd80704f-1da0-47e6-8cc1-a416367ff0c8",
+    "occurred_at": "2026-09-23T03:20:17.459448Z",
+    "reason": "Configured extraction produced editable evidence fields for review."
+  },
+  {
+    "action": "invitation.created",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "population": "maintenance_contractor",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "status": "invited",
+      "synthetic": true
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "a08e5266-810f-4830-b7f8-43e83dac49eb",
+    "occurred_at": "2026-09-23T03:27:51.835418Z",
+    "reason": "Created a synthetic site-access invitation."
+  },
+  {
+    "action": "registration.completed",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "company_created": true,
+      "company_id": "a4128bd2-28d7-4cb0-a5b2-cb0f8a222d51",
+      "person_created": true,
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "status": "pre_registered",
+      "synthetic": true,
+      "visit_id": "443868fb-2f4f-42bf-95e0-35921cafadd0"
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "d60cf7b3-c2a2-417c-9fe2-a72069676b25",
+    "occurred_at": "2026-09-23T03:27:53.125621Z",
+    "reason": "Linked the invitation to company, person, site, and visit records."
+  },
+  {
+    "action": "evidence.uploaded",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "invitation_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "storage_mode": "LOCAL",
+      "supersedes_id": null,
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "1cf29207-b531-4587-8ff7-9ea2774e6e66",
+    "occurred_at": "2026-09-23T03:27:54.090265Z",
+    "reason": "Private evidence was attached to a registered invitation."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "field_names": [
+        "categories",
+        "code_95",
+        "document_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "0e6c38bd-1486-4272-bf81-c2b2d03e2824",
+    "occurred_at": "2026-09-23T03:27:54.877782Z",
+    "reason": "Configured extraction produced editable evidence fields for review."
+  },
+  {
+    "action": "evidence.verified",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "expiry_date": "2030-06-01",
+      "issue_date": "2025-06-01",
+      "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+      "status": "verified",
+      "synthetic": true
+    },
+    "entity_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+    "entity_type": "evidence",
+    "id": "cfbbf09b-4650-44f2-ae8b-d12b6342bba6",
+    "occurred_at": "2026-09-23T03:27:55.545171Z",
+    "reason": "Reviewed against the synthetic demo document."
+  },
+  {
+    "action": "invitation.evidence_ready",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+      "status": "evidence_ready",
+      "synthetic": true
+    },
+    "entity_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+    "entity_type": "invitation",
+    "id": "a814169d-2f0f-41c0-8531-e888244e970d",
+    "occurred_at": "2026-09-23T03:27:55.577799Z",
+    "reason": "Verified evidence advanced the invitation to evidence-ready."
+  }
+]

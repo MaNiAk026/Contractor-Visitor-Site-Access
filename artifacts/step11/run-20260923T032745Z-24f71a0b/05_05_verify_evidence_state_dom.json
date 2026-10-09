@@ -1,0 +1,11 @@
+{
+  "selector": "xpath=//button[normalize-space()='Verify evidence']",
+  "element_exists": true,
+  "element_visible": true,
+  "element_enabled": false,
+  "invitation_id": "422f04ff-72d7-4db9-ad38-956f4d56d857",
+  "person_id": "3f7e9444-b3e0-4537-ae45-cff7074f09e8",
+  "evidence_id": "55a8a2da-1b0a-4902-98ae-3d82164de46c",
+  "tag": "button",
+  "outer_html": "<button class=\"inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-800 disabled:cursor-not-allowed disabled:opacity-50\" type=\"button\" disabled=\"\">Verify evidence</button>"
+}

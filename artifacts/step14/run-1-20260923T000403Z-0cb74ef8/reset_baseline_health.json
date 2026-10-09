@@ -1,0 +1,18 @@
+{
+  "status": "ready",
+  "api": {
+    "status": "ready"
+  },
+  "database": {
+    "status": "ready"
+  },
+  "environment": "development",
+  "demo_mode": true,
+  "providers": {
+    "authentication": "DEMO",
+    "document_extraction": "DEMO",
+    "identity_verification": "DEMO",
+    "notifications": "DEMO",
+    "storage": "LOCAL"
+  }
+}

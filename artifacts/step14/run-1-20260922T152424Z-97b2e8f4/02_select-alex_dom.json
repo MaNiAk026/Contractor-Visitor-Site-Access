@@ -1,0 +1,12 @@
+{
+  "selector": "xpath=//section[@aria-labelledby='training-workspace']//select[ancestor::section[@aria-labelledby='training-workspace']]",
+  "element_exists": true,
+  "element_visible": true,
+  "element_enabled": true,
+  "current_url": "http://localhost:3000/visits",
+  "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+  "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725",
+  "token_id": null,
+  "tag": "select",
+  "outer_html": "<select class=\"mt-1.5 w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-slate-950 shadow-sm outline-none transition focus:border-emerald-600\"><option value=\"4587413e-8c4e-5b8c-a3e7-77d8e5802860\">SHEQ Basics · 80% required</option><option value=\"88757370-2520-5776-b539-c545e96c43d9\">Vlaardingen Site Rules · 80% required</option></select>"
+}

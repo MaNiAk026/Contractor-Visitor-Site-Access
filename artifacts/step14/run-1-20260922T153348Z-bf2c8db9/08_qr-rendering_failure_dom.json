@@ -1,0 +1,10 @@
+{
+  "selector": "xpath=//*[normalize-space()='One-time QR payload']/following::svg[1]",
+  "element_exists": false,
+  "element_visible": false,
+  "element_enabled": false,
+  "current_url": "http://localhost:3000/visits",
+  "person_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+  "visit_id": "a2445f81-ad84-588d-88fb-524b848ca725",
+  "token_id": "4ce23404-0e79-4e75-b5ca-91d472ccbb62"
+}

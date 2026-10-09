@@ -1,0 +1,95 @@
+{
+  "required_actions": [
+    "expiry.alert_created",
+    "revalidation.task_created",
+    "evidence.verified",
+    "revalidation.task_completed",
+    "gate.granted"
+  ],
+  "matched_events": [
+    {
+      "action": "expiry.alert_created",
+      "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+      "details": {
+        "alert_code": "EXPIRED",
+        "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+        "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+        "source_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+        "source_kind": "EVIDENCE",
+        "synthetic": true
+      },
+      "entity_id": "d2071e78-1928-4291-946e-c95d7ec3d272",
+      "entity_type": "expiry_alert",
+      "id": "eac25c75-f5e7-4ff3-8d87-e5a1f3f5d43a",
+      "occurred_at": "2026-09-22T21:26:06.846058Z",
+      "reason": "Verified VCA certificate is expired for an active visit participant."
+    },
+    {
+      "action": "revalidation.task_created",
+      "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+      "details": {
+        "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+        "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+        "source_id": "b47f9e44-f143-5eee-a0a9-227ef6147eb2",
+        "source_kind": "EVIDENCE",
+        "synthetic": true
+      },
+      "entity_id": "1c3edb69-26e9-407b-a66f-d77d36e30658",
+      "entity_type": "revalidation_task",
+      "id": "e5dde60b-8c1b-42d4-bd0a-acb8a8cfc577",
+      "occurred_at": "2026-09-22T21:26:06.856634Z",
+      "reason": "Expired required evidence or training requires re-validation."
+    },
+    {
+      "action": "evidence.verified",
+      "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+      "details": {
+        "evidence_type": "vca_certificate",
+        "expiry_date": "2029-01-15",
+        "issue_date": "2026-01-15",
+        "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+        "status": "verified",
+        "synthetic": true
+      },
+      "entity_id": "21845567-6dc2-4f5f-8dc2-b445c0f9c9f8",
+      "entity_type": "evidence",
+      "id": "523e12e8-09db-4ddd-a09f-86c81368455b",
+      "occurred_at": "2026-09-22T21:26:07.207227Z",
+      "reason": "Verified deterministic Batch 6 VCA renewal."
+    },
+    {
+      "action": "revalidation.task_completed",
+      "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+      "details": {
+        "eligibility_by_visit": {
+          "16e728e6-90d5-5d3e-bd22-ca371c65b10b": true
+        },
+        "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+        "requirement_id": "1f00ea90-7912-59e5-802e-54bbaa39756b",
+        "synthetic": true
+      },
+      "entity_id": "1c3edb69-26e9-407b-a66f-d77d36e30658",
+      "entity_type": "revalidation_task",
+      "id": "808a1635-aa5b-4a7c-bb8d-5a617b96e2b8",
+      "occurred_at": "2026-09-22T21:26:07.457103Z",
+      "reason": "A verified renewal restored the task's current requirement and recalculated active visit compliance."
+    },
+    {
+      "action": "gate.granted",
+      "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+      "details": {
+        "decision": "GRANT",
+        "identity_mode": "DEMO",
+        "person_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+        "reason_codes": [],
+        "synthetic": true,
+        "visit_id": "16e728e6-90d5-5d3e-bd22-ca371c65b10b"
+      },
+      "entity_id": "b3b2bc05-5238-477e-b862-3f20e764b09a",
+      "entity_type": "gate_event",
+      "id": "a24baa24-c88c-49c5-8ce3-b3d4cb31a8e1",
+      "occurred_at": "2026-09-22T21:26:07.837190Z",
+      "reason": "All mandatory server-side gate checks passed."
+    }
+  ]
+}

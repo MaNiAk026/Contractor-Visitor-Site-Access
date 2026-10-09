@@ -1,0 +1,11 @@
+{
+  "selector": "id=evidence-workspace",
+  "element_exists": true,
+  "element_visible": true,
+  "element_enabled": true,
+  "invitation_id": "233746e6-4a46-4041-aff2-ec75b4a3deb0",
+  "person_id": "2942b923-ea98-4350-b402-fe7e9a960ea7",
+  "evidence_id": null,
+  "tag": "h2",
+  "outer_html": "<h2 class=\"font-semibold text-slate-950\" id=\"evidence-workspace\">Private evidence</h2>"
+}

@@ -1,0 +1,4 @@
+
+$ docker compose exec -T api python -m app.commands reset
+
+$ docker compose exec -T api python -m app.commands seed

@@ -1,0 +1,216 @@
+[
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "happy_path",
+      "synthetic": true
+    },
+    "entity_id": "0fae6cd2-386b-5043-a7a4-6820ad1fbcca",
+    "entity_type": "person",
+    "id": "80a69b7c-28ed-51ba-b882-a97856d7b589",
+    "occurred_at": "2026-01-01T00:00:00Z",
+    "reason": "Created fictional Alex van Dijk for the happy path baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "expired_evidence",
+      "synthetic": true
+    },
+    "entity_id": "c79de624-1a46-5895-a5d1-1b1ea0e0e31f",
+    "entity_type": "person",
+    "id": "9794c529-ab9d-560d-b9eb-43104719fbbc",
+    "occurred_at": "2026-01-01T00:01:00Z",
+    "reason": "Created fictional Sofia Janssen for the expired evidence baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "training_failure",
+      "synthetic": true
+    },
+    "entity_id": "fb15a638-40d2-5218-b637-b91f36ee7733",
+    "entity_type": "person",
+    "id": "9acd0941-761e-5071-8e94-0ea36f2bc979",
+    "occurred_at": "2026-01-01T00:02:00Z",
+    "reason": "Created fictional Milan de Boer for the training failure baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "blacklist",
+      "synthetic": true
+    },
+    "entity_id": "8cb43136-0e1f-5fc9-b6da-5fa5d720913d",
+    "entity_type": "person",
+    "id": "4db91e0c-687c-581b-a64f-79de12bc1800",
+    "occurred_at": "2026-01-01T00:03:00Z",
+    "reason": "Created fictional Noah Peters for the blacklist baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "identity_mismatch",
+      "synthetic": true
+    },
+    "entity_id": "a66ca1ac-0d2a-50ea-a7a8-b8b2edf12b39",
+    "entity_type": "person",
+    "id": "e0e6e676-2c5b-540b-bcbb-52e75ce68cc3",
+    "occurred_at": "2026-01-01T00:04:00Z",
+    "reason": "Created fictional Emma Visser for the identity mismatch baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "revalidation",
+      "synthetic": true
+    },
+    "entity_id": "03d9d4a0-61cc-5078-b5fc-4da7da3f1f36",
+    "entity_type": "person",
+    "id": "88246a0c-6718-5e57-a457-0b2dcafb39db",
+    "occurred_at": "2026-01-01T00:05:00Z",
+    "reason": "Created fictional Lucas Smit for the revalidation baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "population_reference",
+      "synthetic": true
+    },
+    "entity_id": "07262cc1-6fc3-5743-86e3-3c2715e09e3a",
+    "entity_type": "person",
+    "id": "9badf262-f0b3-570f-8d60-72f37c6c1443",
+    "occurred_at": "2026-01-01T00:06:00Z",
+    "reason": "Created fictional Eva Mulder for the population reference baseline."
+  },
+  {
+    "action": "demo.person.seeded",
+    "actor_id": "658d832d-9620-5b39-b512-5d684c3728b4",
+    "details": {
+      "mode": "DEMO",
+      "scenario": "population_reference",
+      "synthetic": true
+    },
+    "entity_id": "ab115cce-c644-58ed-8d65-10f432b6c35a",
+    "entity_type": "person",
+    "id": "20b0e8ee-05b4-5b22-b564-7bbbc0ccfd80",
+    "occurred_at": "2026-01-01T00:07:00Z",
+    "reason": "Created fictional Sam Meijer for the population reference baseline."
+  },
+  {
+    "action": "invitation.created",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "population": "maintenance_contractor",
+      "site_id": "3f71de36-41a0-5d9b-ad25-2662de6c4276",
+      "status": "invited",
+      "synthetic": true
+    },
+    "entity_id": "d86a923f-d807-4fba-a97f-f7039b75e792",
+    "entity_type": "invitation",
+    "id": "f4d625e3-d2c7-4cf1-b8f8-6c180a03d6ee",
+    "occurred_at": "2026-09-22T13:31:21.388257Z",
+    "reason": "Created a synthetic site-access invitation."
+  },
+  {
+    "action": "registration.completed",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "company_created": true,
+      "company_id": "56069959-5443-4df4-8d1f-ce15b673a307",
+      "person_created": true,
+      "person_id": "a1073fdf-2642-468b-9dac-fb34e589a0a8",
+      "status": "pre_registered",
+      "synthetic": true,
+      "visit_id": "9b645c17-1f31-42cb-94bf-32d1b625e07a"
+    },
+    "entity_id": "d86a923f-d807-4fba-a97f-f7039b75e792",
+    "entity_type": "invitation",
+    "id": "84f3a893-1b52-45bd-b595-1968b667196d",
+    "occurred_at": "2026-09-22T13:31:22.613707Z",
+    "reason": "Linked the invitation to company, person, site, and visit records."
+  },
+  {
+    "action": "evidence.uploaded",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "invitation_id": "d86a923f-d807-4fba-a97f-f7039b75e792",
+      "person_id": "a1073fdf-2642-468b-9dac-fb34e589a0a8",
+      "storage_mode": "LOCAL",
+      "supersedes_id": null,
+      "synthetic": true
+    },
+    "entity_id": "a9e8d7fd-3e08-42b6-8451-b122b8d4e94e",
+    "entity_type": "evidence",
+    "id": "d7c33411-e44f-472e-aa0d-46d307979541",
+    "occurred_at": "2026-09-22T13:31:23.814110Z",
+    "reason": "Private synthetic evidence was attached to a registered invitation."
+  },
+  {
+    "action": "evidence.extracted",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "field_names": [
+        "categories",
+        "code_95",
+        "document_number",
+        "expiry_date",
+        "holder_name",
+        "issue_date"
+      ],
+      "provider_mode": "DEMO",
+      "synthetic": true
+    },
+    "entity_id": "a9e8d7fd-3e08-42b6-8451-b122b8d4e94e",
+    "entity_type": "evidence",
+    "id": "d20d339d-a217-421e-a214-5e1ccbf9f717",
+    "occurred_at": "2026-09-22T13:31:24.889625Z",
+    "reason": "Deterministic mock extraction produced editable evidence fields."
+  },
+  {
+    "action": "evidence.verified",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_type": "driving_licence",
+      "expiry_date": "2030-06-01",
+      "issue_date": "2025-06-01",
+      "person_id": "a1073fdf-2642-468b-9dac-fb34e589a0a8",
+      "status": "verified",
+      "synthetic": true
+    },
+    "entity_id": "a9e8d7fd-3e08-42b6-8451-b122b8d4e94e",
+    "entity_type": "evidence",
+    "id": "11406874-58e9-46a5-941b-38952d086642",
+    "occurred_at": "2026-09-22T13:31:25.972587Z",
+    "reason": "Reviewed against the synthetic demo document."
+  },
+  {
+    "action": "invitation.evidence_ready",
+    "actor_id": "0f662159-cd41-5758-9045-fb0a15cb37c8",
+    "details": {
+      "evidence_id": "a9e8d7fd-3e08-42b6-8451-b122b8d4e94e",
+      "status": "evidence_ready",
+      "synthetic": true
+    },
+    "entity_id": "d86a923f-d807-4fba-a97f-f7039b75e792",
+    "entity_type": "invitation",
+    "id": "b127e335-c651-4263-b206-73184d137fb7",
+    "occurred_at": "2026-09-22T13:31:26.030988Z",
+    "reason": "Verified evidence advanced the invitation to evidence-ready."
+  }
+]

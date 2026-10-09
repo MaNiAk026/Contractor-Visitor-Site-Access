@@ -1,0 +1,11 @@
+{
+  "selector": "xpath=//*[normalize-space()='Evidence Ready']",
+  "element_exists": true,
+  "element_visible": true,
+  "element_enabled": true,
+  "invitation_id": "e39b3dab-90c0-47ff-9dd2-b253e8731428",
+  "person_id": "2d9d6c8d-5c77-45a9-aa01-60d238899029",
+  "evidence_id": "3c6d31a2-455f-4659-a220-70b3df95e478",
+  "tag": "span",
+  "outer_html": "<span class=\"inline-flex w-fit items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold leading-none border-emerald-200 bg-emerald-50 text-emerald-700\"><span aria-hidden=\"true\" class=\"h-1.5 w-1.5 rounded-full bg-current\"></span>Evidence Ready</span>"
+}

@@ -1,0 +1,37 @@
+Renewi Access
+Site assurance demo
+AUTHORIZED WORKSPACE
+Overview
+Invitations
+People
+Companies
+Visits
+Audit trail
+Demo SHEQ Specialist
+Compliance / SHEQ
+Sign out
+Deterministic demo
+API roles remain authoritative even when modules are hidden here.
+Vlaardingen
+Contractor & visitor access
+Demo mode
+Demo SHEQ Specialist
+Compliance / SHEQ
+BATCH 1 · ROLE-AWARE WORKSPACE
+Welcome, Demo SHEQ Specialist
+Signed in
+Your workspace reflects the permissions issued by the Batch 1 API. Direct requests remain protected by server-side authorization.
+Authorized session
+Compliance / SHEQ
+Account sheq.demo · 12 API permissions
+Local demo session
+Authorized modules
+Only modules supported by your current permissions are shown.
+People
+Review synthetic person standing and open individual records.
+Companies
+Browse the fictional organizations in the deterministic seed.
+Visits
+Inspect planned and current visit records for Vlaardingen.
+Audit trail
+Read chronological, append-only lifecycle evidence.

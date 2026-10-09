@@ -1,0 +1,84 @@
+Skip to main content
+Renewi Access
+Site assurance demo
+AUTHORIZED WORKSPACE
+Overview
+Invitations
+People
+Companies
+Visits
+Audit trail
+Demo SHEQ Specialist
+Compliance / SHEQ
+Sign out
+Deterministic demo
+API roles remain authoritative even when modules are hidden here.
+Vlaardingen
+Contractor & visitor access
+Demo mode
+Demo SHEQ Specialist
+Compliance / SHEQ
+STEPS 1–3
+Invitation & evidence workspace
+Synthetic workflow
+Create an invitation, link or create registration records, then attach and review private evidence. Backend decisions remain authoritative.
+Step 1
+Invitation
+Step 2
+Registration
+3
+Step 3
+Evidence
+Create invitation
+All addresses and organisations must remain fictional.
+SITE
+Select a site
+Vlaardingen
+POPULATION
+Renewi driver
+Temporary driver
+External driver
+Maintenance contractor
+Permanent contractor
+Visitor
+SYNTHETIC INVITEE EMAIL
+FICTIONAL COMPANY
+VISIT PURPOSE
+STARTS
+ENDS
+Create invitation
+Visible invitations
+The API filters this list to the signed-in account’s object scope.
+step11-9d4149ef7a7f@demo.example.com
+STEP-11 Fictional Services B.V.
+Pre Registered
+sofia@example.invalid
+Northstar Demo Maintenance B.V.
+Pre Registered
+MAINTENANCE CONTRACTOR
+step11-9d4149ef7a7f@demo.example.com
+STEP-11 Fictional Services B.V. · STEP-11 deterministic browser validation
+Pre Registered
+VISIT WINDOW
+Sep 24, 2026, 5:45 AM – Sep 24, 2026, 1:45 PM
+WORKFLOW REFERENCE
+233746e6-4a46-4041-aff2-ec75b4a3deb0
+Private evidence
+Seeded choices and uploads remain private and visibly synthetic.
+0 records
+Select seeded document
+Choose fictional evidence
+Demo Dutch-style driving licence · Driving Licence
+Demo identity card · Id Card
+Demo company insurance certificate · Insurance Certificate
+Demo VCA certificate · Vca Certificate
+Attach seeded evidence
+Upload synthetic document
+ID card
+Driving licence
+VCA certificate
+Insurance certificate
+Upload privately
+PDF, PNG, or JPEG; maximum 5 MiB; visible DEMO marker required.
+No evidence has been attached
+Attach a seeded fictional document or upload a visibly synthetic file to begin review.

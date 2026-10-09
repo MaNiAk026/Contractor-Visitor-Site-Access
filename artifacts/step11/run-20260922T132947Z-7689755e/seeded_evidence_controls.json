@@ -1,0 +1,42 @@
+[
+  {
+    "tag": "select",
+    "data_testid": null,
+    "value": "",
+    "evidence_id": "",
+    "displayed_text": "Choose fictional evidence",
+    "selected": true
+  },
+  {
+    "tag": "select",
+    "data_testid": null,
+    "value": "fe327654-85dd-541a-b3b9-dd45c42e6468",
+    "evidence_id": "fe327654-85dd-541a-b3b9-dd45c42e6468",
+    "displayed_text": "Demo Dutch-style driving licence · Driving Licence",
+    "selected": false
+  },
+  {
+    "tag": "select",
+    "data_testid": null,
+    "value": "88250a31-6670-5090-b832-8f5e490c34a2",
+    "evidence_id": "88250a31-6670-5090-b832-8f5e490c34a2",
+    "displayed_text": "Demo identity card · Id Card",
+    "selected": false
+  },
+  {
+    "tag": "select",
+    "data_testid": null,
+    "value": "3dd510fb-4462-5230-82a2-4107ea836aa7",
+    "evidence_id": "3dd510fb-4462-5230-82a2-4107ea836aa7",
+    "displayed_text": "Demo company insurance certificate · Insurance Certificate",
+    "selected": false
+  },
+  {
+    "tag": "select",
+    "data_testid": null,
+    "value": "c298cc0f-d291-5761-b800-e47276c5d283",
+    "evidence_id": "c298cc0f-d291-5761-b800-e47276c5d283",
+    "displayed_text": "Demo VCA certificate · Vca Certificate",
+    "selected": false
+  }
+]

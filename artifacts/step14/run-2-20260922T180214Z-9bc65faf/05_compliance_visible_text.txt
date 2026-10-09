@@ -1,0 +1,120 @@
+Skip to main content
+Renewi Access
+Site assurance demo
+AUTHORIZED WORKSPACE
+Overview
+Invitations
+People
+Companies
+Visits
+Audit trail
+Demo SHEQ Specialist
+Compliance / SHEQ
+Sign out
+Deterministic demo
+API roles remain authoritative even when modules are hidden here.
+Vlaardingen
+Contractor & visitor access
+Demo mode
+Demo SHEQ Specialist
+Compliance / SHEQ
+STEPS 4–6
+Training, approval & access workspace
+Server-authoritative
+Complete scored training, inspect every compliance check, record auditable approval decisions, and issue opaque visit-bound access tokens. The API remains the source of truth for every outcome.
+SELECTED AUTHORIZED VISIT
+Select a visit
+Synthetic happy path demonstration · Alex van Dijk
+Synthetic expired evidence demonstration · Sofia Janssen
+Synthetic training failure demonstration · Milan de Boer
+Synthetic blacklist demonstration · Noah Peters
+Synthetic identity mismatch demonstration · Emma Visser
+Synthetic revalidation demonstration · Lucas Smit
+Synthetic population reference demonstration · Eva Mulder
+Synthetic population reference demonstration · Sam Meijer
+EXTERNAL DRIVER
+Alex van Dijk
+Synthetic happy path demonstration
+Active
+VISIT STARTS
+Sep 22, 2026, 11:32 PM
+VISIT ENDS
+Sep 23, 2026, 9:32 AM
+PERSON STANDING
+Active
+Step 4
+Scored training
+Current result recorded
+Step 5
+Compliance
+Current checks pass
+6
+Step 6
+Access token
+Approved eligible visit required
+Scored training
+Scores, retries, outcomes, and expiry are calculated and persisted by the API.
+TRAINING MODULE
+SHEQ Basics · 80% required
+Vlaardingen Site Rules · 80% required
+vlaardingen_site_rules · en · valid for 365 days. Choose one answer for every question.
+1. What is required when entering Vlaardingen?
+Present the assigned opaque access token
+Use another visitor's QR card
+Enter without recording arrival
+2. What must a visitor do outside approved areas?
+Follow site signage and host instructions
+Access any operational area
+Ignore barrier markings
+Submit scored attempt
+Attempt history
+Attempt 2 · 100%
+Completed Sep 22, 2026, 11:32 PM · expires Sep 22, 2027, 11:32 PM
+Passed
+Attempt 2 · 100%
+Completed Sep 22, 2026, 11:32 PM · expires Sep 22, 2027, 11:32 PM
+Passed
+Attempt 1 · 100%
+Completed Sep 22, 2026, 11:32 PM · expires Sep 22, 2027, 11:32 PM
+Passed
+Attempt 1 · 100%
+Completed Sep 22, 2026, 11:32 PM · expires Sep 22, 2027, 11:32 PM
+Passed
+Compliance & approval
+Each check below is API-calculated. The frontend does not recalculate eligibility.
+Eligible
+Verified driving licence
+Verified required evidence is current.
+Passed
+DRIVING_LICENCE · Evidence · advisory
+Verified identity card
+Verified required evidence is current.
+Passed
+ID_CARD · Evidence · advisory
+SHEQ Basics
+The latest training result is current and passed.
+Passed
+SHEQ_BASICS · Training · advisory
+Vlaardingen Site Rules
+The latest training result is current and passed.
+Passed
+VLAARDINGEN_SITE_RULES · Training · advisory
+Last evaluated Sep 22, 2026, 11:32 PM
+REVIEWER REASONCompliance evaluation requested.
+Create approval evaluation
+Blacklist management
+Authoritative blacklist records block approval and token issue. Revocation retains historical evidence.
+TARGET
+Person · Alex van Dijk
+Company · Delta Demo Logistics B.V.
+REASON
+Add blacklist entry
+Related records
+No person or company blacklist history is visible for this visit.
+QR access token
+Token metadata is retained for audit. The opaque QR payload is revealed only once after issue and is rendered locally.
+Issue eligible visit token
+Issue succeeds only when the API finds a current approved, eligible visit. A QR card appears here once and is not recoverable from token history.
+Issued token history
+No access tokens have been issued for this visit.
+REVOCATION REASON
